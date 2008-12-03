@@ -538,6 +538,7 @@ overflow:auto;
   background:rgb(0, 0, 0);
   margin:0 auto;
   color:#ff1122;
+  overflow:hidden;
 font-family:Times;
   }
 #songFrame button{
@@ -550,7 +551,7 @@ font-family:Times;
   border-radius:10px;
   background:linear-gradient(10deg,#333333, #3311a1);
   margin-top:10px;
-}
+  }
 #userActionsUpload {
   text-align:center;
 }
@@ -567,13 +568,6 @@ color:#ee99ff !important;
 }
 #backButton{
   color:rgb(255, 0, 64);
-}
-#save{
-  color:white;
-  padding:5px 10px;
-  border-radius:10px;
-  max-width:100px;
-  background:linear-gradient(10deg,rgb(182, 88, 158), rgb(255, 0, 34));
 }
 #uploadDurS{
   width:90%;
@@ -606,7 +600,7 @@ background:white;
   border-radius:10px;
   background:black;
   margin:0 auto;
-  height:130px;
+  min-height:130px;
   text-align:center;
   padding:10px;
   margin-top:10px;
@@ -618,7 +612,7 @@ text-align:center;
 @media screen and (min-width:450px){
   #output #lyricsBody,#output #songFrame{
     width:180px;
-    height:250px;
+    min-height:250px;
   }  
   #save{
       margin-top:60%;
@@ -651,7 +645,6 @@ $("body").append(`
 <div id="lyricsBody">
 <h4>No lyrics</h4>
 <textarea id="lyrics" placeholder="write lyrics"></textarea>
-<button id="save">Start Upload</button>
   
 </div>
 
@@ -672,9 +665,11 @@ $("body").append(`
 <input name="type" value="image" hidden>
 <input name="action" id="action" value="uploadImage" hidden>
 <button type="button" id="uploadImage">
-  <label  id="songCoverBtn" for="imageUpload">Choose Song Cover</label>
+  <label  id="songCoverBtn" for="imageUpload">Choose Song art Cover</label>
 </button>
 </form>
+<button id="save">Start Upload</button>
+
     </div>
     <div>
   </div>
@@ -684,19 +679,30 @@ $("body").append(`
     function valid(){
       imageReady=true;
       $("#songCoverBtn").html("Change Song Cover").parent().css("background","#221134");
-
+if(!SongReady){
+  message("Choose your song next",2000,500);
+}
     }
 imageReader($(this),$("#songFrame img"),valid,true);
  });
 let audio=null;
 let titleReady=false;
 $("#songUpload").on("change",function(){
+  let name=$("#songUpload").val()
+  name=name.replace(/^.*\\/,"");
+  name=name.replace(".mp3","");
+$("#songFrame h3").html(name);
+$("#titleView").html(name);
+  if(audio!=null){
+    audio.remove();
+  }
+  titleReady=true;
+  
   function valid(){
   SongReady=true;
   $("#uploadSongBtn").html("Change song").parent().css("background","#221134");
   }
 audio=document.createElement("audio");
-$("#titleView").html("edit Song Title");
 document.body.appendChild(audio);
 $("#songFrame h3").hover(function(){
   if($(this).html().length>2){
@@ -707,9 +713,15 @@ $("#songFrame h3").hover(function(){
     titleReady=false;
   }
 });
+
 $("#songFrame .fa").attr("class","fa fa-pause");
  
 songReader($(this),audio,valid);
+if(!imageReady){
+  setTimeout(()=>{
+    message("choose song art cover next")
+  })
+}
 audio.addEventListener("timeupdate",()=>{
   $("#uploadDurS div").css("width",audio.currentTime/audio.duration*100+"%")
 })

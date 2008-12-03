@@ -44,7 +44,7 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
     <nav>
 
      <div class="backToHome" id="heading">
-     <button id="back" class="fa fa-angle-left"></button><span>Music</span>
+     <button id="back" class="fa fa-angle-left"> <span>Music</span> </button>
 
      <div id="viewMenu">
 <button id="viewProfile"><i class="fa fa-user-circle-o"></i> My profile</button><br>
@@ -98,7 +98,7 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
 <div id="lyricsContent">
 ...
 </div>
-  </div></div>
+  </div></div><br>
 <div id="img">
   <button id="openLyrics" class="fa fa-music"><br>Show lyrics</button>
 
@@ -114,13 +114,19 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
 <div id="line4"><section></section><section></section></div>
 </div></div>
   </div>
-
+<br>
   <div id="playerLoadStyle"></div>
 </div></div>
+
+
+<div>
+  <br><br>
 <h3 style="text-align:center; color:white;" id="songPlayingName">
   loading song name...
 </h3>
+</div>
 
+<br><br>
 
 <div id="playerActions">
 <div id="musicActions">
@@ -136,14 +142,14 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
 <button id="share" class="fa fa-send-o"><br><small>share</small></button>
 </div>
 </div>
-
+<br>
 <div id="playerDur">
   <div id="durTimer"><span id="startCount">00:00</span><span id="endCount"></span></div>
 <div id="twoDur">
   <input id="userTimer" min="0" max="100" type="range">
   <div id="durCount"><div id="dur"> <button></button> </div></div>
 </div>
-</div>
+</div><br>
 <div id="commentLink" style="width:100%;">
 
   <div id="comment" style="width:50%;text-align:right;">
