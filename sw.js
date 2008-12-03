@@ -8,6 +8,8 @@ var filesToCache = [
  'jquery3.js',
  'jquery.form.js',
  'activeFunctions.js',
+ 'scripts/serverActions.js',
+ 'images/web/icon.png',
  'playerAnimation.js'
  ];
  //Start the service worker and cache all of the app's content 
