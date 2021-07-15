@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../jquery.js"></script>
+  <script>
+  const owner=false;
+  let artist=[];
+  let followers=undefined;
+if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
+ alert("you are not loged:\n\n please login first!")
+  location.href="../login/";
+}
+
+  const artistId=localStorage.getItem("1200ArtistId");
+  if(artistId!=null||artistId!=undefined){
+  $.post({
+    url:"../server/severActivity.php",
+    data:{"action":"loadArtistOwner","id":artistId},
+    success:function(e){
+      if(e.search("<br/>")<0 && e.search("<b>")<0){
+        artist=JSON.parse(e);
+        followers=artist.followers;
+        setAllSongs();
+      }
+    },
+    error:function(){
+      alert("can't load artist");
+    }
+  })
+  function setAllSongs(){
+   $.post({
+   url:"../server/severActivity.php",
+   data:{"action":"loadArtistSongs","tableName":artist.songs},
+   success:function(e){
+   artist.songs=JSON.parse(e);
+   setArtistFollowers();
+   },
+   error:function(){
+     alert("error");
+   }
+   });
+   }
+   
+function setArtistFollowers(){
+  //load artist followers
+  table=artist.followers;
+  $.post({
+  url:"../server/severActivity.php",
+  data:{"action":"loadArtistFollowers","tableName":table},
+  success:function(e){
+  artist.followers=JSON.parse(e);
+ // localStorage.removeItem("1200ArtistId");
+  },
+  error:function(){
+    alert("errorF");
+  }
+  }).then(function(){
+    setUpLink()
+  });
+  }
+  }
+else{
+  alert("not permited to view content twice \n please try again");
+  window.history.back();
+}
+  const fev=[];
+    </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>loading....</title>
+</head>
+<body>
+  <div id="body">
+     <div id="scrollBody">
+      <div id="flex">
+         <div id="imageBody">
+        <div id="image"> <img class="profileImage" src="../images/emotional.jpg">
+      <span id="name">Austine Samuel</span><span  id="userActionBtn2"  style="cursor:pointer;">follow</span>
+      </div>
+    </div>
+    <div></div>
+      <div id="rank">
+        <span id="followers" class="fa fa-users">...</span>
+        <span id="tracks" class="fa fa-music">...</span>
+    </div>
+    
+    </div>
+
+      </div>
+    </div>
+      <!--body start here-->
+      <button id="menu" onclick="openMenu()" class="fa fa-reorder"></button>
+ 
+    <div id="startBody">
+      <div id="scroll">
+
+        <div id="flex">
+     <div id="detailsGab">
+singer <br>
+rapper<br>
+clearver<br>
+drummer<br>
+
+      </div><button id="userActionBtn" style="font-family:'Times New Roman', Times, serif !important;">follow</button></div>
+
+
+      <div id="scrollB">
+      <!--content-->
+      <div id="home">
+        <nav>
+          <button id="myHome" class="active">Home</button>
+<button id="myAbout">ABout</button>
+<button id="myMusic" >Musics</button>
+<button id="myGallery">Gallery</button>
+<div id="searcher">
+  <input type="search" id="searchInput"><i id="search"  class="fa fa-search">
+  </i>
+</div>
+        </nav>
+<br>
+        <div id="homepage">
+          <div class="gallery" id="boxS">
+            <h3  id="heading">Gallery<i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+    
+            <div id="sizing">change Images SIzes:
+              <input id="sizeImage" min="40" type="range"><button id="result">size: 50%</button></div>
+            <div id="images">
+              images loading.....
+            </div>
+          </div>
+
+          <div class="music" id="boxS">
+            <h3 id="heading"> Music <i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+          <div id="music">
+
+                      musics  loading....
+          </div>
+          <button id="seeAll"></button>
+          </div>            
+<div class="about" id="boxS">
+<h3 id="heading">ABout <i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+<div id="userText"> 
+  text loading ......
+</div>
+<button id="seeAll">See All</button>
+</div>
+        </div>
+
+<bR>
+  <a style="color:rgb(216, 216, 240); margin-left:5px;" href="../player.html">Back</a>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+      </div>
+    <!--contetn end s here-->
+      </div>
+      
+      </div></div>
+<!--menu content-->
+<!--menu content-->
+      <div id="menuContent">
+        <div id="content">
+
+<button class="fa fa-times" onclick="closeMenu()" id="close"></button>
+<div id="list">
+<li class="a"><i class="fa fa-home"></i> back to Homepage</li>
+<li class="b"><i class="fa fa-user-plus"></i> Follow <small>Austine Samuel</small></li>
+<li class="a"><i class="fa fa-info"></i>ABout <small>Austine Samuel</small></li>
+<li class="b"><i class="fa fa-envelope"></i>Message <small>Austine Samuel</small></li>
+</div>
+
+<div id="connect">
+  <div id="linkText"><img src="images/emotional.jpg"><small>Austine Samuel</small> <i class="fa fa-caret-right">Share Profile </i></div>
+ <div id="links">
+  <span id="copyLink"> <i class="fa fa-clone"></i><br>Copy link</span>
+  <span> <a id="shareToFaceBookA" target="_blank" href="#"><i class="fa fa-facebook"></i></a><br>Facebook</span>
+ <span> <a id="shareToTwitterA" href="#"><i class="fa fa-twitter"></i></a><br>Twitter</span>
+ <span> <a id="shareToWhatsAppA" href="#"><i class="fa fa-whatsapp"></i></a><br>WhasApp</span>
+</div></div>
+
+        </div>
+      </div>
+<!--menu ends-->
+      </div>
+      
+</body>
+<script src="../scripts/profile.js"></script>
+<script src="../activeFunctions.js"></script>
+<script src="../scripts/serverActions.js"></script>
+<script>
+showLoader2();
+
+//server action functions only for this page**8
+function loadFollowing(){
+  $.post({
+    url:"../server/severActivity.php",
+    data:{"action":"loadFollowing","tableName":user.following},
+    success:function(e){
+      if(e.search("<br>")<0 && e.search("<b>")<0 && e!="unrecognised request"){
+     user.following=JSON.parse(e);
+     checkFollow();
+      }
+      else{
+        console.log("invalid json data");
+      }
+    },
+    error:function(e){
+      alert("error while loading : fwn");
+    }
+  })
+}
+const user=setUser("user");
+const followingTable=user.following;
+loadFollowing();
+followed=false;
+
+function checkFollow(){
+user.following.forEach((e)=>{
+ if(e.ownerId == artist.id){
+     followed=true;
+    }
+  });
+  if(followed){
+    $("#userActionBtn2,#userActionBtn").html("following").css("background","rgb(41, 0, 80)");
+  }
+}
+
+function addToFollowArtist(){
+  artistObject=artist;
+  const add={
+      "name":artistObject.artistName,
+      "ownerId":parseInt(artistObject.id),
+      "profileImage":artistObject.profileImage
+  }
+  
+  addDb={...add,
+  "action":"follow",
+  "myTable":followingTable,
+  "artistTable":followers,
+  "myName":user.name!=undefined ? user.name:user.artistName,
+  "myImage":user.profileImage,
+  "myEmail":user.email,
+  "myId":parseInt(user.id),
+  "notificationTable":user.notification,
+  "isArtist":user.name !=undefined ? 0:1
+  }
+  follow(addDb,done,"../server/severActivity.php");
+  function done(){
+ user.following.unshift(add);
+  sendNotification(artistObject.notifications,"start following you",null,"../server/severActivity.php");
+  }
+  }
+    function click(){
+      $("#userActionBtn2,#userActionBtn").click(function(){
+  message("loading.....");
+  });
+  if(followed){
+    warning("you are following <i style='color:white;'>"+artist.artistName+"</i> do you want to unfollow?",`
+    if you unfollow <i> ${artist.artistName} </i> you won't recieve his song notification again
+      <ul>
+    `,"Cancel","unfollow",done);
+    function done(){
+      unfollow(artist,done);
+      function done(e){
+        if(e=="successfully"){
+        followed=false
+        $("#userActionBtn2,#userActionBtn").html("follow").css("background","");
+      message("you unfollowed "+artist.artistName+"");
+
+      $("#userActionBtn2,#userActionBtn").click(function(){
+    click();
+  });
+      } 
+    }
+    }
+  }
+  else{
+    addToFollowArtist();
+    followed=true;
+    $("#userActionBtn2,#userActionBtn").html("following").css("background","rgb(41, 0, 80)");
+  }
+  }
+  $("#userActionBtn2,#userActionBtn").click(function(){
+    click();
+  });
+</script>
+</html>

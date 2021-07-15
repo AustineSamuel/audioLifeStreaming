@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="jquery.js"></script>
+  <script src="scripts/json.js"></script>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="player.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="allPageCss.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Audio Player</title>
+  <script>
+     let play=false;
+    let id=null;
+    let songLink="";
+var act={
+"viewSongList":true,
+"viewPlayerPage":false,
+"viewComment":false,
+"viewSharePage":false,
+"viewHomePage":false,
+"viewBottomPlayer":false,
+"viewEditPage":false,
+"viewArtistPage":true,
+"viewFevoritesPage":false,
+"viewTracksPage":false,
+"viewPageA":true,
+"viewPageB":false,
+"songPlaying":0,
+"playingType":"once"
+}
+
+if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
+ alert("you are not loged:\n\n please login first!")
+  location.href="login/";
+}
+  </script>
+</head>
+<body>
+<div id="bgSet">
+  <div id="body">
+    <div style="width:100%; overflow:hidden;">
+    <nav>
+
+     <div class="backToHome" id="heading">
+     <button id="back" class="fa fa-angle-left"></button><span>Music</span>
+
+     <div id="viewMenu">
+<button id="viewProfile"><i class="fa fa-user-circle-o"></i> My profile</button><br>
+<button id="logOut"><i class="fa fa-user"></i> Log out</button><br>
+
+     </div>
+  
+     </div>
+
+
+<div id="search">
+  <input id="searchInput" placeholder="search song,artist,album" type="search"><button class="fa fa-search"></button>
+
+  <button id="openMenu"> <img style="width:100%;height:inherit;border-radius:inherit;">  </button>
+
+<div>
+    </nav></div>
+
+<div id="songsPage"><!--songs page start here-->
+  <div id="topp">
+    <div id="artist">
+
+      <div id="infos">
+      <img src="images/emotional.jpg">
+      <span id="artistName"> Austine samuel </span>
+      <i class="fa fa-caret-right"></i> <i id="action_name">songs/</i>
+    <span id="listTracksLen">loading..</span> 
+    </div>
+<div style="width:20%; text-align:right;">
+    <button id="addFollow">Follow</button>
+  </div>
+      </div></div>
+<!-- songs list-->
+<div id="songList">
+  <div id="appendList">
+  </div>
+</div>
+<!--end songs list-->
+
+<!--player page-->
+<div id="playerPage" style="height:600px;">
+  <div id="heading">
+<button id="back" class="fa fa-arrow-left"></button>
+
+<button id="edit" class="fa fa-sliders"></button>
+  </div>
+  <div id="playerHeight">
+  <div id="lyrics">
+<div id="lyricsCover">
+<h3 id="head"><button id="backToPlayer" class="fa fa-arrow-left"><br>close lyrics</button><span id="songName">Open My Way</span></h3>
+<div id="lyricsContent">
+...
+</div>
+  </div></div>
+<div id="img">
+  <button id="openLyrics" class="fa fa-music"><br>Show lyrics</button>
+
+  <div id="containLen">
+ <div id="rImage">
+  <div style="display:flex !important;" id="center"><div></div></div>
+</div>
+<div id="drwLen">
+  <div id="rotate">
+  <div id="line1"><div></div></div>
+  <div id="line2"><div></div></div>
+<div id="line3"><div></div></div>
+<div id="line4"><section></section><section></section></div>
+</div></div>
+  </div>
+
+  <div id="playerLoadStyle"></div>
+</div></div>
+<h3 style="text-align:center; color:white;" id="songPlayingName">
+  loading song name...
+</h3>
+
+
+<div id="playerActions">
+<div id="musicActions">
+<button id="prev" class="fa fa-step-backward"></button>
+<button id="playPause" class="fa fa-play"></button>
+<button id="next" class="fa fa-step-forward"></button>
+</div>
+
+<div id="userActions">
+<button id="fevClick" class="fa fa-heart-o"><br><small>fevorite</small></button>
+<button id="playBack" class="fa fa-refresh"><br><small>no repeat</small></button>
+<button id="downloadBtn" class="fa fa-arrow-down"><br><small>download</small></button>
+<button id="share" class="fa fa-send-o"><br><small>share</small></button>
+</div>
+</div>
+
+<div id="playerDur">
+  <div id="durTimer"><span id="startCount">00:00</span><span id="endCount"></span></div>
+<div id="twoDur">
+  <input id="userTimer" min="0" max="100" type="range">
+  <div id="durCount"><div id="dur"> <button></button> </div></div>
+</div>
+</div>
+<div id="commentLink" style="width:100%;">
+
+  <div id="comment" style="width:50%;text-align:right;">
+<div style="text-align:left; margin-left:5px;"><span>Write comment..</span><button class="fa fa-edit"></button>
+  </div></div>
+<div>
+  <div id="links" style="margin-left:20% !important;width:50%;text-align:left;">
+<span id="songComment" class="fa fa-comment"><span id="number">22</span></span>
+<span id="songViews" class="fa fa-eye"><span id="number">34</span></span>
+<span id="songDownloads" class="fa fa-arrow-down"><span id="number">22</span></span>
+<span id="songStars" class="fa fa-heart"><span id="number">5</span></span>
+</div>
+</div>
+
+</div>
+</div><!--end player page-->
+
+<!--end body-->
+
+  </div><!--songsPage end s here-->
+<div id="homePage">
+<div id="heading">
+  <button title="artist page"  class="home" id="active">Artists</button>
+  <button title="fevorites page" class="fev">fevorites</button>
+  <button title="view All Tracks" class="tracks">Tracks</button>
+  </div>
+  <!--notifications and message icons -->
+  <span id="hd"><span id="name"> Todays Uploads <i class="fa fa-play"></i></span> 
+ 
+  <span id="user">
+    <a style="cursor:alias !important" link="pages/chat.html"><button id="userMessages" class="fa fa-commenting"> <i>...</i></button></a>
+    
+   <button id="userAccount" class="fa fa-bell"> <i>...</i></button>
+  
+  </span></span><br><hr style="width:100%; border:none; border-top:1px solid rgb(29, 26, 43);">
+  <!--end notifications and message icons -->
+
+  
+<div id="bodyB">
+  <div id="artistBody">
+    
+  <div id="scrollB">
+    <h3 id="head">Top Albums</h3>
+    <div id="topL">
+
+    
+    </div>
+    <h3 id="head">All Albums</h3>
+    <i id="showScroll" style="color:rgb(255, 0, 85); float:right; padding:0px 15px; font-size:small;">scroll left..</i>
+    <div id="boxsB">
+      <div id="scrollX">
+<table>
+  <tr><!--load all albums here scroll x only-->
+  
+  </tr>
+</table>
+</div>
+    </div>
+
+    <h3 id="head" style="font-family:Times; text-align:center;box-shadow:0px 6px 10px 0px rgb(43, 41, 49); background:rgb(5, 1, 29);">Connect with Singers</h3>
+<div id="scroll">
+<div id="followArea">
+
+</div>
+</div>
+
+  </div></div>
+<!--fevorites page-->
+  <div id="fevoritesBody">
+   <button id="playAllButton" >Play all<span class="fa fa-play"></span></button>
+    <span id="tracksLen">loading..</span>
+<br>
+<div id="scroll">
+<div id="fevSongs">
+
+</div>
+
+    </div></div>
+
+  </div>
+
+</div></div></div><!--pageViewer-->
+<div id="viewer">
+  
+<div id="vBody">
+  <button id="viewAll" class="fa fa-angle-up"></button><br>
+ 
+  <div id="contents">
+    
+</div>
+
+</div>
+</div>
+
+<!--pageViewer viewer-->
+
+<!--bottom player-->
+<div id="bottomPlayer">
+  <div id="durCount"><div id="dur"><button></button></div></div>
+  
+<div id="crntPlay">
+  <div style="width:60%;display:flex;justify-content:flex-start; padding:0px 10px;">
+  <div id="img"></div>
+
+  <div style="width:70%;" id="info">
+    <span id="songName">loading song name</span>
+    <span id="name"></span>
+    </div></div>
+
+<div id="playArea">
+  <button id="download" class="fa fa-heart"></button>
+  <button id="playPause" class="fa fa-play"></button>
+  <button id="next" class="fa fa-step-forward"></button>
+  </div>
+
+</div></div><!--ends bottom player-->
+  
+<audio  src="songs/song (3).mp3" hidden></audio>
+  <input name="playerInput" id="input" hidden>
+  <a id="shareLink" href="" data-action="whatsapp/share/whatsapp"></a>
+</body>
+<script src="activeFunctions.js"></script>
+<script>
+  showLoader2();
+  //mostly css ajustment
+  $("#scrollX").on("scroll",function(){
+    $("#showScroll").hide(300);
+  })
+</script>
+
+<script src="scripts/loading.js"></script>
+<script src="playerAnimation.js"></script>
+<script src="player.js"></script>
+<script src="scripts/serverActions.js"></script>
+<script src="server/player.user.class.js"></script>
+<script src="scripts/notificationHandler.js"></script>
+</html>

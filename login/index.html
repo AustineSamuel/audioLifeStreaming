@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="../jquery3.js"></script>
+  <script src="../jquery.form.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+ <div id="body">
+  <div id="scroll">
+ 
+    <div id="loginBox">
+
+      <div id="action">
+        <button type="button" id="signUp" >Sign Up</button>
+        <button type="button" id="signIn"class="active" >Sign In</button>
+      </div><br>
+      <form action="../server/severActivity.php" method="POST" ectype="multipart/form-data">
+      <div id="cover">
+      <div id="image">
+        <label style="cursor:pointer" for="file" hidden><i class="fa fa-camera"></i></label>
+      </div></div>
+    
+      <div id="inputs">
+        <div  class="none" id="newInput">
+          <label for="name">User Name:</label><cite class="fa fa-check"></cite>
+          <div><span class="fa fa-book"></span><input id="name" name="name" placeholder="Enter your full name"></div>
+        </div>
+
+        <div class="login" id="newInput">
+          <label for="name">Email:</label><cite class="fa fa-check"></cite>
+          <div><span class="fa fa-envelope"></span><input id="email"name="email" placeholder="Enter your Email Address"></div>
+        </div>
+
+        <div class="login" id="newInput">
+          <label for="name">Password:</label><cite class="fa fa-check"></cite>
+
+          <div><span class="fa fa-lock"></span><input type="password" id="password1" name="password" placeholder="Enter Password"><i class="fa fa-eye-slash"></i></div>
+        </div>
+
+        <div class="none" id="newInput">
+          <label for="name">Confirm Password:</label><cite class="fa fa-check"></cite>
+          <div><span class="fa fa-lock"></span><input id="password2" name="password2" type="password" placeholder="Retype Password"><i class="fa fa-eye-slash"></i></div>
+        </div>
+      </div>
+      <div class="none" id="asArtist">
+      are you an artist ?<br>
+<button type="button" id="Yes" class="fa fa-square-o"><span>Yes</span></button>
+<button type="button" id="No" class="fa fa-square-o"><span>No</span></button>
+
+<div id="artistAccountInfo">
+<span id="texts">
+</span>
+</div>
+</div>
+
+      <div class="none" id="passwordL">
+        <div id="load">
+<div id="dur"></div>
+        </div>
+
+        <span><span id="states">No password : </span><span id="text">Please create a password</span></span>
+      </div><bR>
+        <input id="file" type="file" name="image" hidden/>
+        <input id="formAction" name="action" hidden>
+      <footer  id="submit">SIng Up</footer>
+      </form>
+    </div>
+  </div></div>
+  <!--login game-->
+  <div id="loginGame">
+<div id="texts">Creating your account <br>Please wait....</div>
+  </div>
+
+</body>
+<script src="../activeFunctions.js"></script>
+<script src="../smartValidator.js"></script>
+<script src="login.js"></script>
+<script>
+$("#scroll").css("max-height",screen.height-100+"px");
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../jquery3.js"></script>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>socket tes</title>
+</head>
+<body>
+  <button onclick="nextPage('page1.html')">next page</button>
+</body>
+<script>
+  //$("body").html("hello world<a href='phpLoad.php'>go</a>'");
+  function nextPage(url){
+    $.post({
+      url:"phpLoad.php",
+      data:{"url":url},
+      success:function(e){
+        $("html").html(e);
+        console.log("done"+e);
+      },
+      error:function(){
+        console.log("error");
+      }
+    })
+  }
+</script>
+</html>

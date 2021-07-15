@@ -1,0 +1,239 @@
+body{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+nav{
+  height:30px;
+  background:inherit;
+}
+#body{
+  width:100%;
+  height:100%;
+  position:absolute;
+  background-color:rgb(17, 15, 15);
+  background-size: cover;
+  background-image:url("../webImages/images-2.jpg");
+  display:flex;
+  align-items:center;
+  justify-content:center;
+overflow:hidden;
+}
+#head{
+  font-family:cursive;
+}
+
+*{
+  color:lightgray;
+  font-family:Arial, Helvetica, sans-serif;
+  transition:0.6 ease;
+  transition-duration:700ms;
+}
+button,input,textarea{
+  border:none;
+  background:none;
+  outline:none;
+}
+#loginBox{
+  width:90%;
+  min-width:250px !important;
+  max-width:380px;
+  margin:0 auto;
+padding:15px;
+transition:0.6 ease;
+transition-duration:800ms;
+overflow:hidden;
+  box-shadow:22rr2px 2px 30px 0px rgb(0, 0, 0),-2px -2px 30px 0px rgb(0, 0, 0);
+  padding:40px 10px;
+background:rgba(6, 6, 15, 0.945);
+border-radius:10px;
+}
+
+#action button{
+padding:2px 10px;
+background:rgb(0, 0, 0);
+color:rgb(113, 103, 253);
+border-bottom:1px solid rgb(247, 4, 97);
+}
+#action .active{
+  border-bottom:1px solid rgb(220, 219, 235);
+  background:rgb(4, 4, 231);
+  color:white;
+}
+.none{
+  display:none;
+}
+#cover{
+  padding:2px 2px;
+  border-radius:inherit;
+  background:linear-gradient(-90deg,rgb(247, 2, 55),rgb(7, 7, 230));
+  width: 100px;
+  height:100px;
+  border-radius:50px;
+  margin:0 auto;
+  }
+#image{
+  width:100px;
+  height:100px;
+  background-color:rgb(6, 6, 15);
+  border-radius:50px;
+  margin:0 auto;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-image:url("../webImages/avater3.png");
+  display:flex;
+  align-items:flex-end;
+justify-content:flex-end;
+}
+#image label i,#newInput span{
+color:rgb(80, 5, 255);
+}
+
+#newInput{
+  width:90%;
+  margin:0 auto;
+}
+#newInput cite{
+color:rgb(24, 252, 24);
+float:right;
+translate:10px 30px;
+display:none;
+}
+#newInput div:hover{
+box-shadow:2px 2px 10px 0px rgb(0, 0, 0);
+border:1px solid rgb(77, 2, 148)
+}
+#newInput div:hover>span{
+  color:rgb(255, 0, 76)
+}
+#newInput div i{
+color:rgb(255, 255, 255);
+}
+#scroll{
+  overflow:auto;
+  width:100%;
+  padding-right:40px;
+  box-sizing:border-box;
+  margin-left:20px;
+}
+#newInput label{
+  font-size:small;
+  font-family:rgb(210, 202, 252);
+  padding:0px 3px;
+  color:rgb(226, 7, 36)
+}
+#newInput div{
+  background:black;
+  padding:10px 4px;
+  box-shadow:2px 2px 10px 0px rgb(24, 18, 53);
+  border-radius:10px;
+ }
+#newInput input{
+  height:100%;
+  width:80%;
+  padding:5px 4px;
+}
+#newInput span{
+  width:20px;
+  height:100%;
+}
+#passwordL{
+width:100%;
+margin-left:5px;
+padding:4px;
+}
+#passwordL #load{
+  width:150px;
+  background:rgba(55, 3, 245, 0.151);
+}
+#passwordL #load #dur{
+  height:10px;
+  width:10%;
+  background:rgb(54, 1, 245);
+}
+#passwordL span{
+font-size:small;
+}
+#passwordL span #states{
+color:rgb(255, 224, 231);
+padding:0px 2px;
+}
+#passwordL span #text{
+color:rgb(144, 162, 250);
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#submit{
+  width:70%;
+  padding:4px;
+  background:linear-gradient(30deg,rgb(250, 3, 106),rgb(6, 10, 248));
+  margin:0 auto;
+  text-align:center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border-radius:30px;
+}
+#submit:hover{
+  background:linear-gradient(30deg,rgb(250, 3, 106),rgb(207, 0, 79));
+  }
+#submit:active{
+background:rgb(133, 132, 184);
+color:rgb(253, 9, 90);
+}
+#alert{
+position:fixed;
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:100%;
+background:rgba(0, 0, 0, 0.233);
+display:none;
+}
+#alert #content{
+width:90%;
+height:40%;
+background:rgb(9, 9, 24);
+box-shadow:1px 1px 30px 0px rgb(73, 66, 50);
+border-radius:10px;
+padding:10px 10px;
+}
+#content h3{
+  width:98%;
+  padding:2px 0px;
+  text-align:center;
+  color:rgb(255, 145, 43);
+}
+#content p{
+  color:rgb(168, 168, 253);
+}
+#asArtist{
+  width:92%;
+  margin:0 auto;
+  padding:10px;
+}
+#asArtist button{
+  font-size:larger;
+  color:rgb(97, 97, 252);
+}
+#asArtist #artsitAccountInfo{
+  width:80%;
+  margin:0 auto;
+}
+#asArtist #artsitAccountInfo #text{
+  color:rgb(199, 199, 255);
+  padding:10px 10px;
+  font-family:'Times New Roman', Times, serif;
+  font-size:small;
+  font-style:oblique;
+}
+#loginGame{
+  width:100%;
+  height:100%;
+  position:fixed;
+background:rgb(6,6,50,0.8);
+display:none;
+}
+#loginGame #texts{
+  padding:10px;
+  margin-left:10px;
+}

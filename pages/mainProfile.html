@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../jquery3.js"></script>
+  <script src="../jquery.form.js"></script>
+  <script>
+  
+if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
+ alert("you are not loged:\n\n please login first!")
+  location.href="../login/";
+}
+
+      let crntSong=null;
+    const owner=true;
+    let id=null;
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>loading..</title>
+  <style>
+#updateProfile{
+position:absolute;
+color:rgb(255, 0, 76);
+margin-top:10px;
+margin-lefT:80px;
+}
+  </style>
+</head>
+<body>
+  <form method="post" enctype="multipart/form-data" action="../server/severActivity.php">
+     <input type="file" name="file" id="update" hidden>
+     <input type="text" name="action" value="uploadImage" hidden>
+    </form>
+  <div id="body">
+     <div id="scrollBody">
+      <div id="flex">
+         <div id="imageBody">
+ 
+        <div id="image"> <label id="updateProfile" for="update" class="fa fa-camera"></label>
+          <img class="profileImage" src="../images/emotional.jpg">
+      <span id="name">......</span></div>
+    </div>
+      <div id="rank">
+      </div>
+      </div>
+    </div>
+      <!--body start here-->
+      <button id="menu" onclick="openMenu()" class="fa fa-reorder"></button>
+ 
+    <div id="startBody">
+      <div id="scroll"><br>
+     <div id="detailsGab">
+.....      </div>
+      <div id="scrollB">
+      <!--content-->
+      <div id="home">
+        <nav>
+          <button id="myHome" class="active">Home</button>
+<button id="myAbout">ABout</button>
+<button id="myMusic" >Musics</button>
+<button id="myGallery">Gallery</button>
+<div id="searcher">
+  <input type="search" id="searchInput"><i id="search"  class="fa fa-search">
+  </i>
+</div>
+        </nav>
+<br>
+        <div id="homepage">
+          <div class="gallery" id="boxS">
+            <h3  id="heading">Gallery<i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+    
+            <div id="sizing">change Images SIzes:
+              <input id="sizeImage" min="40" type="range"><button id="result">size: 50%</button></div>
+            <div id="images">
+              images loading.....
+            </div>
+                    </div>
+
+          
+
+          <div class="music" id="boxS">
+            <h3 id="heading"> Music <i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+          <div id="music">
+
+                      musics  loading....
+          </div>
+          <button titile="add Music" id="add">+</button>
+          <button id="seeAll"></button>
+          </div>            
+<div class="about" id="boxS">
+<h3 id="heading">ABout <i class="fa fa-play"></i> <span> Austine Samuel</span></h3>
+<div id="userText"> 
+  text loading ......
+</div>
+<button id="seeAll">See All</button>
+<button titile="add video" id="add" class="fa fa-edit"></button>
+</div>
+        </div>
+<bR>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+      </div>
+    <!--contetn end s here-->
+      </div>
+      
+      </div></div>
+<!--menu content-->
+<!--menu content-->
+<div id="menuContent">
+  <div id="content">
+    
+<button class="fa fa-times" onclick="closeMenu()" id="close"></button>
+<div id="list">
+<li class="a"><i class="fa fa-home"></i> back to Homepage</li>
+<li class="b"><i class="fa fa-user-plus"></i> Follow <small>Austine Samuel</small></li>
+<li class="a"><i class="fa fa-info"></i>ABout <small>Austine Samuel</small></li>
+<li class="b"><i class="fa fa-envelope"></i>Message <small>Austine Samuel</small></li>
+</div>
+
+<div id="connect">
+  <div id="linkText"><img src="images/emotional.jpg"><small>Austine Samuel</small> <i class="fa fa-caret-right">Share Profile </i></div>
+ <div id="links">
+  <span id="copyLink"> <i class="fa fa-clone"></i><br>Copy link</span>
+  <span> <a id="shareToFaceBookA" target="_blank" href="#"><i class="fa fa-facebook"></i></a><br>Facebook</span>
+ <span> <a id="shareToTwitterA" href="#"><i class="fa fa-twitter"></i></a><br>Twitter</span>
+ <span> <a id="shareToWhatsAppA" href="#"><i class="fa fa-whatsapp"></i></a><br>WhasApp</span>
+</div></div>
+
+  </div>
+</div>
+<!--menu ends--></div>
+
+<div id="largeInput"><!--large taking input-->
+  <div id="content">
+    <span id="heading">Bio</span>
+  <button id="back" class="fa fa-times"></button>
+  <textarea id="largeInputText" placeholder="Type Somthing"></textarea>
+  <div id="bottom">
+  <button id="cancel">Cancel</button>
+  <button  class="save" hidden>Save</button>
+  <button id="save">Save</button>
+  </div>
+</div>
+</div>
+      
+  
+</body>
+<script>
+
+  //some settings
+  $("#largeInput").fadeOut(0);
+</script>
+<script src="../activeFunctions.js"></script>
+<script src="profileJson.js"></script>
+<script src="mainProfile.js"></script>
+<script src="../scripts/serverActions.js"></script>
+<script src="../scripts/profile.js"></script>
+<script>showLoader2();
+</script>
+</html>

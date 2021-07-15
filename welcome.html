@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome To MusicHub.net</title>
+  <style>
+    body{
+      padding:0;
+      margin:0;
+      box-sizing:border-box;
+    }
+    #body{
+      width:100%;
+      height:100%;
+      position:absolute;
+      background:rgb(17, 15, 15);
+    overflow:auto;
+    }
+    #sideMenu{
+      display:none !important;
+      width:70%;
+      max-width:400px;
+      height:100%;
+      position:fixed;
+      padding:10px 10px;
+      background-color:rgb(4, 2, 104);
+      box-shadow:0px -4px 20px 0px rgb(136, 121, 121);
+    overflow:auto;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+ }
+      *{
+      color:rgb(206, 200, 233);
+      transition:0.6 ease;
+      transition-duration:800ms;
+    }
+    button,input,textarea{
+  border:none;
+  background:none;
+  outline:none;
+}
+#img{
+  width:100%;
+  height:60%;
+}
+#imgText{
+  width:100%;
+  max-width:400px;
+  text-align:center;
+  margin:0 auto;
+}
+#imgText span{
+  color:rgb(200, 180, 255);
+}
+#load{
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  margin:0 auto;
+}
+#load{
+  padding:10px 10px;
+}
+#load span{
+  padding:4px 5px;
+  background:rgb(162, 162, 250);
+  border-radius:5px;
+}
+#next{
+  width:100px;
+padding:3px;
+border-radius:5px;
+background:rgb(42, 42, 255);
+box-shadow:1px 1px 5px 0px black;
+position:fixed;
+bottom:0;
+right:0;
+margin-left:-10px;
+margin-top:-10px;
+}
+#next:hover{
+background:rgb(255, 0, 98);
+}
+#next:active{
+  background:white;
+  color:black;
+}
+  </style>
+</head>
+<body>
+  <div id="body">
+    <div id="sideMenu">
+
+    </div>
+  
+<button class="fa fa-reorder"></button>
+
+<div id="img">
+<img>
+</div>
+
+<div id="imgText">
+  <span> Welcome to MusicHub.net </span>
+</div>
+
+<div id="load">
+  <span></span>
+  <span></span>
+ <span></span>
+ <span></span>
+ <span></span>
+
+</div>
+
+
+</div>
+<a href="player.html"><button id="next">Next</button></a>
+
+  </body>
+<script src="activeFunctions.js"></script>
+<script src="smartValidator.js"></script>
+<script src="login.js"></script>
+<script>
+  const text=[
+{"img":"src",
+  "text":"Welcome to MusicHub.com"
+},
+{"img":"src",
+"text":"Get your Songs to the world hearing"
+},
+{"img":"src",
+"text":"meet new artist friends"
+},
+{"img":"src",
+"text":"one tap download for any of your song"
+},
+{"img":"src",
+"text":"Use it now is free"
+}
+  ];
+let  i=0;
+function next(dur){
+   $("#img img").animate({opacity:"0"},200);
+  $("#imgText span").animate({opacity:"0"},200);
+  
+setTimeout(()=>{
+  $("#imgText span").html(text[i].text);
+  $("#img img").attr("src",text[i].img);
+  $("#imgText span").animate({opacity:"10"},500);
+  $("#img img").animate({opacity:"10"},500);
+},600)
+setTimeout(()=>{
+    i=i >= text.length-1 ? 0 : i+1;
+  next(6000);
+},dur);
+}
+next(6000);
+</script>
+</html>
