@@ -1,2 +1,2 @@
 <?php
-header("Location: pages/".$_POST["page"],true);
+header("Location:pages/".$_POST["page"],true) ;
