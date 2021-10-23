@@ -697,8 +697,9 @@ function loadAllArtist(){
   );
   array_push($json,$data);
   }
-  return json_encode($json);
-  }
+   }
+   return json_encode($json);
+ 
   }
 //comment manupulations
 function getSongComments($commentTable){

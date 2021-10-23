@@ -51,7 +51,7 @@ nav{
   align-items:center;
   justify-content:space-between;
   box-shadow:0px 3px 20px 0px rgb(0, 0, 0);
-  border-bottom:1px solid rgb(110, 20, 43);
+  border-bottom:1px solid rgb(82, 35, 47);
   overflow:hidden;
 }
 nav #search{
@@ -74,7 +74,7 @@ nav #search:hover>input{
   padding:5px 3px !important;
 }
 nav #heading .fa{
-  color:rgb(4, 0, 255);
+  color:rgb(68, 0, 255);
   font-size:x-large;
 }
 nav #heading #viewMenu{
@@ -84,7 +84,7 @@ nav #heading #viewMenu{
    position:absolute;
    height:0;
    transition:all;
-   transition-duration: 800ms;
+   transition-duration:1s;
    overflow:hidden;
 }
 nav #heading:hover>#viewMenu{
@@ -1003,7 +1003,9 @@ background-image:url("webImages/card.jpg")
 #boxB #cardSet button:hover{
   color:rgb(132, 0, 255) !important;
 }
-
+button,.fa{
+cursor:pointer;
+}
 #boxB #info{
 width:100%;
 border-radius:0px 0px 4px 4px;

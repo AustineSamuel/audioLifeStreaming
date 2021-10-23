@@ -157,7 +157,9 @@ $("#user #userMessages i").html(messages.length);
     }
   }).then(function(){
     //page start here
-    pageStart();
+    setTimeout(() => {
+      pageStart();  
+    }, 0);
   })
   }
   

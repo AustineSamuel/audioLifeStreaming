@@ -33,5 +33,3 @@ warning("Create free account with musicHub", `Create free account with musicHub 
 }//end class
 
 //test
-const web=new NormalUser();
-web.checkLogin();

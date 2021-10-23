@@ -518,7 +518,7 @@ overflow:auto;
   text-align:center;
   margin:0 auto;
   box-shadow:2px 1px 10px 0px #221134;
-  width:60%;
+  width:80%;
    border-radius:10px;
    background:black;
   padding-bottom:20px;
@@ -852,6 +852,7 @@ $.post({
 url:Myurl,
 data:dat,
 success:function(e){
+  console.log(e);
     allArtistInfo=JSON.parse(e);
 callBack!=null ? callBack(e):"";
 },

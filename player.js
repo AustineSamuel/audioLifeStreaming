@@ -1241,6 +1241,14 @@ else{
 //let firstLoad=false;
 onload=()=>{
   
+  showLoader2();
+  //mostly css ajustment
+  $("#scrollX").on("scroll",function(){
+    $("#showScroll").hide(300);
+  })
+  
+const web=new NormalUser();
+web.checkLogin();
 }
 
 topArtist=[];
@@ -1259,7 +1267,14 @@ loadTopArtistArr(topArtist);
 
 const pageStart=() => {
  closeLoader(3,50);
-//   firstLoad=true;
+ if(allArtist.length<=0){
+   function back(){
+     console.log("game");
+   }
+
+return warning("NO artist Active Yet","this page don't have any active artist  maybe you should play game before active artise arrive","No now","play game",back,back);
+ }
+//   firstLoad=true;u should
 ///reloadAllArtist();
 loadTopArtist();
 loadArtistToFollow();
