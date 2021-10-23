@@ -1,7 +1,5 @@
 <?php
 $con=new mysqli("localhost","root","","playerusers");
-//$con=new mysqli("localhost","id16654496_austinesamuel914","Me**2001Smart","id16654496_playerusers");;
-
 function connect(){
   global $con; 
 if($con){
