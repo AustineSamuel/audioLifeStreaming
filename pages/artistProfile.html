@@ -78,7 +78,7 @@ else{
       <div id="flex">
          <div id="imageBody">
         <div id="image"> <img class="profileImage" src="../images/emotional.jpg">
-      <span id="name">Austine Samuel</span><span  id="userActionBtn2"  style="cursor:pointer;">follow</span>
+      <span id="name" style="margin-top:10px;margin-left:-5px;">../</span><span  id="userActionBtn2"  style="cursor:pointer;">follow</span>
       </div>
     </div>
     <div></div>
@@ -153,7 +153,13 @@ drummer<br>
       
 </div>
 
-      <div id="profileCtn">profile</div><!--profile-->
+      <div id="profileCtn">
+        <div id="center"><br><br>
+<img id="myProfileImage">
+        </div><br>
+        <h3 id="profileUserName" style="color:var(--colorred);">name</h3>
+        <button id="myProfileFollow">Follow</button>
+      </div><!--profile-->
       <!--end flexContent-->
       
      </div>
@@ -239,7 +245,7 @@ user.following.forEach((e)=>{
     }
   });
   if(followed){
-    $("#userActionBtn2,#userActionBtn").html("following").css("background","rgb(41, 0, 80)");
+    $("#userActionBtn2,#userActionBtn,#myProfileFollow").html("following").css("background","rgb(41, 0, 80)");
   }
 }
 
@@ -269,7 +275,7 @@ function addToFollowArtist(){
   }
   }
     function click(){
-      $("#userActionBtn2,#userActionBtn").click(function(){
+      $("#userActionBtn2,#userActionBtn,#myProfileFollow").click(function(){
   message("loading.....");
   });
   if(followed){
@@ -282,10 +288,10 @@ function addToFollowArtist(){
       function done(e){
         if(e=="successfully"){
         followed=false
-        $("#userActionBtn2,#userActionBtn").html("follow").css("background","");
+        $("#userActionBtn2,#userActionBtn,#myProfileFollow").html("follow").css("background","");
       message("you unfollowed "+artist.artistName+"");
 
-      $("#userActionBtn2,#userActionBtn").click(function(){
+      $("#userActionBtn2,#userActionBtn,#myProfileFollow").click(function(){
     click();
   });
       } 
@@ -295,10 +301,10 @@ function addToFollowArtist(){
   else{
     addToFollowArtist();
     followed=true;
-    $("#userActionBtn2,#userActionBtn").html("following").css("background","rgb(41, 0, 80)");
+    $("#userActionBtn2,#userActionBtn,#myProfileFollow").html("following").css("background","rgb(41, 0, 80)");
   }
   }
-  $("#userActionBtn2,#userActionBtn").click(function(){
+  $("#userActionBtn2,#userActionBtn,#myProfileFollow").click(function(){
     click();
   });
 </script>

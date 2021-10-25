@@ -328,10 +328,10 @@ $("#myHome").click(function(){
     actions();    
     loopAll();
 });
-$("#imageBody #name").html(artist.artistName);
+$("#imageBody #name,#profileUserName").html(artist.artistName);
 $("#heading span").html(artist.artistName);
-$("#menuContent #connect img,#imageBody img").attr("src","../images/"+artist.profileImage);
- 
+$("#menuContent #connect img,#imageBody img,#myProfileImage").attr("src","../images/"+artist.profileImage);
+// $("#imageBody #myProfileImage")
     if(owner===true){
 //$("body").append(`<script src="mainProfile.js"></script>`);
 loadActivities()
