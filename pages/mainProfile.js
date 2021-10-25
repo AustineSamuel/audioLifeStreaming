@@ -29,6 +29,11 @@ $("#rank #notifications").click(function(){
     
     </div>`) ;
    }
+   setTimeout(() => {
+    if(imageArr.length<=0){
+      $("#boxS #images").html(`<h2>No Data</h2>`)
+    }
+  }, 20);
    //clicks events here 
    $("#messages").click(function(){
      //open all messages
@@ -113,17 +118,22 @@ alert("update error");
     });
 
     $(".about #add").click(function(){
-      $("#largeInput  #save").hide();$("#largeInput  .save").show();
+    
       $("#myAbout").attr("class","active").siblings("button").attr("class","");
       for(let i in acts){
         acts[i]=false;
         }
-        acts.about=true;
-        actions();  
-        loop(artist.aboutMe,$("#boxS #userText"),"about");
-        $("#largeInput").fadeIn(300).children().children("#heading").html("Edit Your Music Story");
-        $("#largeInput textarea").val(replaceBrWithNL($(".about #userText").html()));
 
+        setTimeout(() => {
+          acts.about=true;
+          actions();  
+          loop(artist.aboutMe,$("#boxS #userText"),"about");
+          $("#largeInput").fadeIn(300)
+        }, 0);
+
+        $("#largeInput").children().children("#heading").html("Edit Your Music Story");
+        $("#largeInput textarea").val(replaceBrWithNL($(".about #userText").html()));
+console.log("clicked");
         $("#largeInput .save").click(function(){//save data via ajax request here
           $(".about #userText").html("loading");
           var data=$("#largeInput textarea").val();

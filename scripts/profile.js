@@ -80,8 +80,7 @@ function openMenu(){
 const loop=(arr=[],html=$("#images"),whatToDoLoop="images",len=null)=>{
   len=len==null ? arr.length:len;
   html.html("");
-  if(arr.length>0){
-    whatToDoLoop=whatToDoLoop.toUpperCase();
+  whatToDoLoop=whatToDoLoop.toUpperCase();
     switch(whatToDoLoop){
     case "VIDEOS":
       for (let i = 0; i < len; i++) {
@@ -100,6 +99,7 @@ const loop=(arr=[],html=$("#images"),whatToDoLoop="images",len=null)=>{
       }
     break;
     case "MUSICS":
+      if(arr.length>0){
       for (let i = 0; i < len; i++) {
       html.append(`
       <div songId="${i}" id="box">
@@ -113,6 +113,10 @@ const loop=(arr=[],html=$("#images"),whatToDoLoop="images",len=null)=>{
     </div>
       `)
       }
+    }
+    else{
+      html.html("<h2>NO SONG YET</h2>")
+    }
       $(".music #box #start").click(function(){
         const id=parseInt($(this).parent().attr("songId"));
          viewSongNormal(id,"../songs/");
@@ -121,21 +125,34 @@ const loop=(arr=[],html=$("#images"),whatToDoLoop="images",len=null)=>{
       break;
       case "IMAGES":
         if(owner!=true){
+
         for (let i = 0; i < len; i++) {
           html.append(`<img src="../images/${arr[i]}"/>`);
               }
       }
         else{
           loadActivities();
+       
+       
         }
-      
+        setTimeout(() => {
+          if(arr.length<=0){
+            html.html(`<h2>No Data</h2>`)
+          }
+        }, 20);
         break;
       case "ABOUT":
+        if(arr.length<=0){
+html.html(`
+<h2>NO Story Yet</h2>
+<button id="add">Add Your Story</button>
+`)
+        }
         const about=arr.slice(0,len);
         html.html(about);
   }
   }
-}
+
 
 let profileLink="";
 
