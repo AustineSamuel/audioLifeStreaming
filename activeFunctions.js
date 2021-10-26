@@ -1520,7 +1520,7 @@ function showLoader2(){
   </style>`);
 
   $("body").append(`<div id="loader2">
-    <div class="loader">Loading...</div>
+    <div class="loader">QrecordCare...</small></div>
     </div>
     `);
 }

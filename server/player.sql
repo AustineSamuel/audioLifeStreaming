@@ -1,4 +1,3 @@
-CREATE DATABASE playerchatapp;
 CREATE DATABASE playerusers;
 use playerusers;
 

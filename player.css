@@ -80,31 +80,30 @@ nav #heading .fa{
 nav #heading #viewMenu{
   width:150px; 
    background:rgb(6, 6, 20);
-   box-shadow:1px -2px 10px 0px black; 
+   box-shadow:1px -2px 10px 0px rgb(42, 42, 43); 
    position:absolute;
    height:0;
    transition:all;
    transition-duration:1s;
    overflow:hidden;
+  
 }
 nav #heading:hover>#viewMenu{
 height:auto;
+padding:16px;
 }
 nav #heading #viewMenu button{
   color:rgb(79, 90, 245);
   padding:10px;
-  
+  width:100%;
 }
 nav #heading #viewMenu button i{
   color:rgb(185, 4, 73);
   padding:0px 4px;
 }
-nav #heading #viewMenu button:hover>i{
-  font-size:large;
-}
 nav #heading #viewMenu button:hover{
   color:white !important;
-  background:black;
+  background:rgb(56, 56, 56);
 }
 nav #search button{
   color:rgb(33, 29, 253);
@@ -934,6 +933,8 @@ cursor:pointer;
 }
 #homePage #heading button:hover{
   color:rgb(253, 117, 158) !important;
+  background:rgba(0, 0, 0, 0.247);
+  border-bottom:1px solid rgb(253, 117, 158) ;
 }
 #homePage #heading #active{
   color:#5656ff;
@@ -1063,6 +1064,9 @@ margin-left:4px;
   margin-left:86%;
   color:rgb(243, 55, 8);
 }
+#hd #back span{
+  font-family:cursive;
+}
 #hd #back:hover{
   color:rgb(255, 136, 0);
 }
@@ -1158,7 +1162,7 @@ padding:10px;
   width:90%;
   margin:0 auto;
   padding:10px; 
-  border-bottom:1px solid rgb(134, 4, 80);
+  border-bottom:1px solid rgb(36, 33, 35);
   display:flex;
   justify-content:space-between;
 }
@@ -1198,6 +1202,7 @@ flex-flow:row wrap;
   width:90%;
   background:rgb(26, 12, 156);
   margin-top:5px;
+  font-weight:bolder;
 }
 #followArea #artist #follow #followed{
   background:rgb(41, 41, 54);
@@ -1216,7 +1221,7 @@ flex-flow:row wrap;
   border:1px solid rgb(94, 92, 102);
 }
 #followArea #artist #follow #followBtn:hover{
-  background:rgb(255, 2, 141);
+  background:rgb(37, 15, 230);
   color:rgb(252, 249, 250);
 }
 
@@ -1228,9 +1233,10 @@ button:active{
   color:rgb(255, 156, 156);
 }
 #followArea #artist #follow #messageBtn:hover{
-  background:rgb(54, 56, 63);
-  border:1px solid rgb(144, 176, 224);
-  box-shadow:1px 1px 6px 0px black;
+  background:rgb(0, 0, 0);
+  border:1px solid rgb(29, 29, 29);
+  box-shadow:1px 1px 6px 0px rgb(48, 48, 48);
+  color:white;
 }
 #image{
   width:80%;

@@ -23,7 +23,7 @@ $("#openMenu img").attr("src","images/"+user.profileImage).click(function(){
 const actions=(dur=200)=>{
   if(act.viewPageA==true){
     $("#homePage").fadeIn(dur);
-    $(".backToHome span").html("Music")
+    $(".backToHome span").html("QRecordCare")
     //some artist loads 
   }
   else if(act.viewPageA==false){
@@ -929,8 +929,10 @@ ${e.followers.length} ${parseInt(e.followers.length)>1 ? "followers":"follower"}
         </div>
     `);//loop top
 });
-arr.length < 1 ? $("#homePage #topL").append(`
-  <div style="display:flex; align-items:center; justify-content:center max-width:500px; color:#6677ff">The Artists you followed will appear here !</div>`):""
+if(arr.length<=0){
+  $("#homePage #topL").html(`
+  <div style="display:flex; align-items:center; justify-content:center max-width:500px; color:#6677ff">The Artists you followed will appear here ! </div>`);
+}
 //clickAlbum(arr);
 }
 
@@ -1079,7 +1081,9 @@ $("#fevSongs").append(`
 
     }
 });
+if(crntArtist!=null){
     arr.length < 1 ? $("#fevSongs").append(`<h4 style="text-align:center; color:#aaaaff">${crntArtist.artistName} songs / <i>nothing found</i></h4>`):""
+    }
 $("#newSongF #play,#newSongF #image").click(function(){
   act.viewPageB=true;
   act.viewPageA=false;
@@ -1249,7 +1253,18 @@ onload=()=>{
   
 const web=new NormalUser();
 web.checkLogin();
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js").then((e)=>{
+console.log(e);
+console.log("sw success")
+  }).catch(function(){
+    console.log("error");
+  })
 }
+
+}//end onload;
+
 
 topArtist=[];
 function showMyArtist(){

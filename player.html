@@ -5,6 +5,18 @@
   <script src="jquery.js"></script>
   <script src="scripts/json.js"></script>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <link rel="manifest" href="manifest.json">
+
+<!--apple-->
+   <meta name="theme-color" content="black"/>
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-title" content="Hello World">
+   <meta name="msapplication-TileImage" content="images/144x144icon.png">
+   <meta name="msapplication-TileColor" content="black">
+ 
+ <!--pwa register apple ends-->
+
   <link rel="stylesheet" href="player.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="allPageCss.css"/>
@@ -44,11 +56,12 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
     <nav>
 
      <div class="backToHome" id="heading">
-     <button id="back" class="fa fa-angle-left"> <span>Music</span> </button>
+       
+     <button id="back" style="display:flex;flex-flow:row nowrap;" class="fa fa-angle-left"> <span>Music</span> </button>
 
      <div id="viewMenu">
 <button id="viewProfile"><i class="fa fa-user-circle-o"></i> My profile</button><br>
-<button id="logOut"><i class="fa fa-user"></i> Log out</button><br>
+<button id="logOut"><i class="fa"></i> Log out</button><br>
 
      </div>
   
@@ -209,7 +222,7 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
 </div>
     </div>
 
-    <h3 id="head" style="font-family:Times; text-align:center;box-shadow:0px 6px 10px 0px rgb(43, 41, 49); background:rgb(5, 1, 29);">Connect with Singers</h3>
+    <h3 id="head" style="font-family:Times; text-align:center;box-shadow:0px 1px 10px 0px rgb(18, 18, 19); background:rgb(5, 1, 29);">Connect with top Artist</h3>
 <div id="scroll">
 <div id="followArea">
 
@@ -232,7 +245,7 @@ if(localStorage.getItem("user")==undefined||localStorage.getItem("user")==null){
   </div>
 
 </div></div></div><!--pageViewer-->
-<div id="viewer">
+<div id="viewer"><!--container that come from bottom-->
   
 <div id="vBody">
   <button id="viewAll" class="fa fa-angle-up"></button><br>

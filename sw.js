@@ -1,4 +1,4 @@
-var cacheName = 'AVA-ORDER';
+var cacheName = 'QRECORD';
 var filesToCache = [
   '',
  //'player.html',
